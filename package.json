@@ -1,0 +1,31 @@
+{
+  "name": "foam",
+  "version": "0.0.1",
+  "description": "A simple soap client",
+  "main": "foam.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha -w test/"
+  },
+  "keywords": [
+    "soap",
+    "xml"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AirAsiaExpedia/node-foam"
+  },
+  "author": "Jerome Touffe-Blin <jtblin@gmail.com>",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "hyperquest": "~0.3.0",
+    "stream-ext": "~0.0.1",
+    "simple-xml": "~0.0.3"
+  },
+  "devDependencies": {
+    "mocha": "~1.18.2",
+    "chai": "~1.9.1",
+    "sinon": "~1.9.0",
+    "sinon-chai": "~2.5.0",
+    "replay": "git://github.com/AirAsiaExpedia/node-replay.git"
+  }
+}

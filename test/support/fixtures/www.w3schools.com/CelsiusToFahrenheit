@@ -1,0 +1,19 @@
+POST /webservices/tempconvert.asmx
+soapaction: http://www.w3schools.com/webservices/CelsiusToFahrenheit
+content-type: text/xml;charset=UTF-8
+accept-encoding: gzip
+accept: */*
+body: <?xml version=\"1.0\" encoding=\"UTF-8\"?><env:Envelope xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\" ><env:Body><CelsiusToFahrenheit xmlns=\"http://www.w3schools.com/webservices/\"><Celsius>23</Celsius></CelsiusToFahrenheit></env:Body></env:Envelope>
+
+200 HTTP/1.1
+content-encoding: gzip
+cache-control: private, max-age=0,public
+content-type: text/xml; charset=utf-8
+date: Wed, 26 Mar 2014 03:42:15 GMT
+server: Microsoft-IIS/7.5
+vary: Accept-Encoding
+x-aspnet-version: 4.0.30319
+x-powered-by: ASP.NET
+content-length: 327
+
+H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3mkuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZkAWz2zkrayZ4hgKrIHz9+fB8/Ih7/Hu8WZXqZ101RLT/7aHe881GaL6fVrFhefPbRuj3fPvjo9zh63FTZ6tHp8jIvq1We0ivL5hE+++yjeduuHt2920zn+SJrxvQVPh9X9cVd/HI315fufqSvvWsK+9bV1dX46h433tvZ2b37e3/x/DUD2i6WTZstp7l7a3bzWx8pok+q2fXR45O8bIp186Z6ls3rfDnPi/ZV3qyqZaMj6ACkIVRV2Yyn1eLuVT5p8vqymObNXYIaB7Uu26MH98b7j+8Ofz/0HaNB33r4yu+GyEf/D4RxMWGaAQAA
