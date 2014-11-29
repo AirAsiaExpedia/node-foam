@@ -24,8 +24,16 @@ module.exports = function soap (uri, operation, action, message, options, callba
       callback(err);
     }
   });
+  
+  var hyperoptions = {headers: headers(action,xml.length)};
+  if(options.rejectUnauthorized !== undefined){
+    hyperoptions.rejectUnauthorized = options.rejectUnauthorized;
+  }
+  if(options.secureProtocol !== undefined){
+    hyperoptions.secureProtocol = options.secureProtocol;
+  }
 
-  var req = hyperquest.post(uri, { headers: headers(action, xml.length)});
+  var req = hyperquest.post(uri, hyperoptions);
   req.on('error', callback);
   req.on('response', function (res) {
     if (isGzipped(res))
