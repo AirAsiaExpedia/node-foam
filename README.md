@@ -43,3 +43,5 @@ foam(uri, operation, action, message, {namespace: namespace},
 - `namespace` - optional xmlns namespace for the `operation`
 - `namespaces` - optional additional namespaces for the `Envelope` element
 - `benchmark` - set to true to log the request timing to the console, defaults **false**
+- `rejectUnauthorized` - set to false to accept invalid certificates
+- `secureProtocol` - set to specific ssl protocol e.g. `SSLv3_method`

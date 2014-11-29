@@ -30,15 +30,37 @@ describe('unit tests', function () {
 
     it('passes the soapaction, content-type and accept-encoding headers', function () {
       var mock = sandbox.mock(hyperquest);
-      mock.expects('post').once().withExactArgs(uri, { headers: {
-        'Accept': "*/*",
-        'Accept-Encoding': "gzip",
-        'Content-Length': 352,
-        'Content-Type': "text/xml;charset=UTF-8",
-        'Soapaction': "http://www.w3schools.com/webservices/CelsiusToFahrenheit"
-    }}).returns(req);
+      mock.expects('post').once().withExactArgs(uri, {
+        headers: {
+          'Accept': "*/*",
+          'Accept-Encoding': "gzip",
+          'Content-Length': 352,
+          'Content-Type': "text/xml;charset=UTF-8",
+          'Soapaction': "http://www.w3schools.com/webservices/CelsiusToFahrenheit"
+        },
+        rejectUnauthorized: undefined,
+        secureProtocol: undefined
+      }).returns(req);
       var foam = require('../foam');
       foam(uri, operation, action, message, {namespace: namespace}, noop);
+      mock.verify();
+    });
+
+    it('passes the other options', function () {
+      var mock = sandbox.mock(hyperquest);
+      mock.expects('post').once().withExactArgs(uri, {
+        headers: {
+          'Accept': "*/*",
+          'Accept-Encoding': "gzip",
+          'Content-Length': 352,
+          'Content-Type': "text/xml;charset=UTF-8",
+          'Soapaction': "http://www.w3schools.com/webservices/CelsiusToFahrenheit"
+        },
+        rejectUnauthorized: false,
+        secureProtocol: 'SSLv3_method'
+      }).returns(req);
+      var foam = require('../foam');
+      foam(uri, operation, action, message, {namespace: namespace, rejectUnauthorized: false, secureProtocol: 'SSLv3_method'}, noop);
       mock.verify();
     });
 
