@@ -44,7 +44,13 @@ function envelope (operation, message, options) {
   var xml = '<?xml version="1.0" encoding="UTF-8"?>';
   xml += '<env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
     'xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" ' + namespaces(options.namespaces) + '>';
-  if (options.header) xml += '<env:Header>' + XML.stringify(options.header) + '</env:Header>';
+
+  if (options.header) {
+    xml += '<env:Header>';
+    xml += typeof options.header === 'object' ? XML.stringify(options.header) : options.header.toString();
+    xml += '</env:Header>';
+  }
+
   xml += '<env:Body>';
   xml += serializeOperation(operation, options); // '<' + operation + ' xmlns="' + options.namespace + '"' + '>';
   xml += XML.stringify(message);
