@@ -53,7 +53,7 @@ function envelope (operation, message, options) {
 
   xml += '<env:Body>';
   xml += serializeOperation(operation, options); // '<' + operation + ' xmlns="' + options.namespace + '"' + '>';
-  xml += XML.stringify(message);
+  xml += typeof message === 'object' ? XML.stringify(message) : message.toString();
   xml += '</' + operation + '>';
   xml += '</env:Body>';
   xml += '</env:Envelope>';
